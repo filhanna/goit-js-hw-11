@@ -6,17 +6,16 @@ const gallery = document.querySelector(".gallery");
 const loadMoreBtn = document.querySelector(".load-more");
 let page = 1;
 let query;
-loadMoreBtn.hidden = true;
+loadMoreBtn.classList.add("is-hidden");
 searchForm.addEventListener("submit", onSearchForm);
 loadMoreBtn.addEventListener("click", onLoadMoreBtn);
 
 async function onSearchForm(evt) {
   evt.preventDefault();
-  loadMoreBtn.hidden = true;
+  loadMoreBtn.classList.add("is-hidden");
   gallery.innerHTML = "";
   page = 1;
   query = evt.currentTarget[0].value.trim();
-  loadMoreBtn.classList.remove("is-hidden");
   if (query === "") {
     Notiflix.Notify.failure("Please fill in the search field");
   } else {
@@ -28,7 +27,7 @@ async function onSearchForm(evt) {
       );
     } else {
       gallery.insertAdjacentHTML("beforeend", renderGallery(images.hits));
-      loadMoreBtn.hidden = false;
+      loadMoreBtn.classList.remove("is-hidden");
     }
   }
 }
@@ -36,7 +35,7 @@ async function onLoadMoreBtn() {
   page += 1;
   const images = await fetchImages(query, page);
   if (images.hits.length < 40 && images.hits.length !== 0) {
-    loadMoreBtn.hidden = true;
+    loadMoreBtn.classList.add("is-hidden");
     Notiflix.Notify.warning(
       "We're sorry, but you've reached the end of search results."
     );

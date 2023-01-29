@@ -16,7 +16,7 @@ function renderGallery(arr) {
         downloads,
       }) => {
         return `<div class="photo-card">
-  <img src=${webformatURL} alt=${tags} loading="lazy" data-large = ${largeImageURL}/>
+  <img src=${webformatURL} alt=${tags} loading="lazy" class="photo-img"/>
   <div class="info">
     <p class="info-item">
       <b>Likes</b> ${likes}

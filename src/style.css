@@ -1,0 +1,25 @@
+.gallery {
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: center;
+  margin: 20px auto;
+  display: grid;
+}
+
+.photo-img {
+  max-width: 100%;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.load-more {
+  margin: 0 auto;
+  display: block;
+}
+
+.is-hidden {
+  display: none;
+}
