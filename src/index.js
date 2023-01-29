@@ -21,7 +21,7 @@ async function onSearchForm(evt) {
     Notiflix.Notify.failure("Please fill in the search field");
   } else {
     const images = await fetchImages(query, page);
-    console.log(images);
+
     if (images.totalHits === 0) {
       Notiflix.Notify.failure(
         "Sorry, there are no images matching your search query. Please try again."
